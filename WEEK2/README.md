@@ -44,4 +44,4 @@ A System on a Chip (SoC) is like a small computer made on a single chip. All the
 
 - Complex design, heat issues, less flexibility.
 
-![www](/home/ishaan-kamath/Desktop/VSD-RISCV/WEEK2/Photos/Apple_m1-chip-8-core-cpu-chart_11102020_big.jpg.large.jpg)
+![www](../WEEK2/Photos/Apple_m1-chip-8-core-cpu-chart_11102020_big.jpg.large.jpg)
