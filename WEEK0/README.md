@@ -1,5 +1,5 @@
 
-<details>
+
 	<summary>Task 1 and 2  </summary>
 	
 # Day 0 
@@ -46,4 +46,4 @@ We start by creating a high-level model of the entire RISC-V processor using C c
 <img width="604" alt="gtkwave2" src="Photos/Screenshot from 2025-09-20 22-49-43.png">
 
 <img width="1008" alt="gtkwave1" src="Photos/Screenshot from 2025-09-20 22-49-52.png">
-</details>
+
