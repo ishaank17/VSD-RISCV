@@ -144,7 +144,7 @@ In this picture we can see the following signals:
 
 ## Yosys Final Report:
 
-#### [Link to the Log File](WEEK2/VSDBabySoC/output/synth)
+#### [Link to the Log File](../WEEK2/VSDBabySoC/output/synth)
 
 ```shell
 === vsdbabysoc ===
