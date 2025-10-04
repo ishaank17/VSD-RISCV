@@ -1,7 +1,7 @@
 ## Table of Contents
 
 - [Part 1: SoC (Theory)](#part-1-soc-theory)
-- [Part 2: BabySoC Fundamentals & Functional Modelling](#part-2---babysoc-fundamentals--functional-modelling) 
+- [Part 2: BabySoC Fundamentals & Functional Modelling](#part-2--babysoc-fundamentals--functional-modelling) 
 
 ## Part 1: SoC (Theory)
 
