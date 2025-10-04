@@ -24,6 +24,31 @@ A System on a Chip (SoC) is like a small computer made on a single chip. All the
 
 7- **Special Features** : Additional modules like the Wi-Fi, Bluetooth, GPS etc. 
 
+
+
+In BabySoC, key peripherals include:
+
+- **Phase-Locked Loop (PLL)** for stable clock generation.
+- **10-bit Digital-to-Analog Converter (DAC)** for analog signal output.
+
+### Why BabySoC ?
+
+**BabySoC** is a simplified, educational SoC model built using open-source IPs. It integrates:
+
+- **RVMYTH RISC-V CPU** for digital processing,
+- **PLL** for precise clock synchronization, and
+- **DAC** for bridging the digital-to-analog world.
+
+By keeping the design compact and focusing on a few essential components, BabySoC makes it easier to:
+
+- Learn **how CPUs, clocks, and converters interact** within an SoC,
+- Explore **digital-to-analog interfacing**, and
+- Understand **timing, synchronization, and modular integration** without the overwhelming complexity of industrial SoCs.
+
+**BabySoC** emphasizes **functional modeling** as the crucial first step. By experimenting with BabySoC’s behavior, learners grasp core SoC principles before tackling RTL coding or silicon-level challenges.
+
+![Block Diagram](/home/ishaan-kamath/Desktop/VSD-RISCV/WEEK2/Photos/img.png)
+
 #### Why SoCs Are Awesome
 
 - **Space Saving**: Smaller devices.
@@ -43,6 +68,25 @@ A System on a Chip (SoC) is like a small computer made on a single chip. All the
 #### Challenges with SoCs
 
 - Complex design, heat issues, less flexibility.
+
+## The Role of Functional Modeling
+
+Designing a real SoC goes through multiple stages:
+
+1. **Functional Modeling**
+   
+   - High-level behavioral simulation of the SoC.
+   - Ensures that the CPU, memory, PLL, and DAC interact correctly.
+   - Helps in debugging logic early, before committing to hardware.
+
+2. **RTL Design (Register Transfer Level)**
+   
+   - Hardware description in Verilog/VHDL.
+   - Focuses on clock cycles, registers, and data paths.
+
+3. **Physical Design**
+   
+   - Translating RTL into layouts, gates, and silicon fabrication details.
 
 ![www](../WEEK2/Photos/Apple_m1-chip-8-core-cpu-chart_11102020_big.jpg.large.jpg)
 
