@@ -214,7 +214,7 @@ In this picture we can see the following signals:
 
 The reset is directly connected to **CPU_reset_a0** and then in the next clock rising edge **CPU_reset_a1** is set.
 
-At this point the **Program Counter** is reset to addres location 0.
+At this point the **Program Counter** (**CPU_pc_a0**)is reset to addres location 0.
 
 In the next cycle the **CPU_instr_a1** is loaded with the instruction at memory location 0.
 
