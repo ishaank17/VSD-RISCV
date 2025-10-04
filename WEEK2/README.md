@@ -208,6 +208,8 @@ In this picture we can see the following signals:
 
 ## Waveform Analysis:
 
+### <u>Reset Behaviour</u> :
+
 ![Reset Behavior ](../WEEK2/Photos/Pasted%20image.png)
 
 The reset is directly connected to **CPU_reset_a0** and then in the next clock rising edge **CPU_reset_a1** is set.
@@ -253,3 +255,43 @@ The instruction matches the **CPU_instr_a1** signal in the gtkwave window. The D
 #### DAC Output:
 
 ![DAC Outpu](../WEEK2/Photos/Pasted%20image%20(2).png "DAC Output")
+
+### <u>Clock</u> :
+
+`CLK`  (Yellow Signal) is the input clock signal of the **RVMYTH core**. This signal is derived from the output of the PLL. The CLK waveform shows a periodic square wave driving all synchronous elements of the BabySoC. Each rising edge triggers state transitions inside flip-flops and sequential logic.
+
+![Output](/home/ishaan-kamath/Desktop/VSD-RISCV/WEEK2/Photos/Pasted%20image%20(3).png)
+
+### <u>Data Flow Between Modules</u> :
+
+- **CLK** is the **PLL output** that drives the **RVMYTH core**.
+- **OUT[9:0]** is the core’s **10‑bit bus** feeding the **DAC** as **D[9:0]**.
+- The **OUT** represents the **DAC’s internal analog output**.
+- The **top‑level SoC OUT** is **digital** in this simulation and can take only **two values**, so it appears as a **1‑bit step** instead of a continuous analog level. (Not in this picture)
+
+
+
+```verilog
+generate for (xreg = 0; xreg <= 31; xreg=xreg+1) begin : L1_CPU_Xreg //_/xreg
+
+               // For $wr.
+wire L1_wr_a3;
+
+assign L1_wr_a3 = CPU_rf_wr_en_a3 && (CPU_rf_wr_index_a3 != 5'b0) && (CPU_rf_wr_index_a3 == xreg);
+assign CPU_Xreg_value_a3[xreg][31:0] = CPU_reset_a3 ?   xreg :
+        L1_wr_a3        ?   CPU_rf_wr_data_a3 :
+                            CPU_Xreg_value_a4[xreg][31:0];
+end endgenerate
+```
+
+This Snippet from `rvmyth.v` tells us upon reset all the registers are assigned their own number. 
+
+This sets `Xreg[17]` in rvmyth core to 17.  This is connected to the input of the `DAC` . 
+
+The output from `DAC real wire`  is 0.16617790 which is correct as `17/1023 ≈ 0.0166` (The DAC is 10-Bit).
+
+
+
+This can clearly be seen and confirmed in the image below that after reset `OUT = 0.16617790` and `OUT[9:0]=0x011 (17 in decimal)`.
+
+![Output](/home/ishaan-kamath/Desktop/VSD-RISCV/WEEK2/Photos/Pasted%20image%20(4).png)
