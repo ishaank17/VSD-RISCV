@@ -29,8 +29,6 @@ A System on a Chip (SoC) is like a small computer made on a single chip. All the
 
 7- **Special Features** : Additional modules like the Wi-Fi, Bluetooth, GPS etc. 
 
-
-
 In BabySoC, key peripherals include:
 
 - **Phase-Locked Loop (PLL)** for stable clock generation.
@@ -52,7 +50,7 @@ By keeping the design compact and focusing on a few essential components, BabySo
 
 **BabySoC** emphasizes **functional modeling** as the crucial first step. By experimenting with BabySoC’s behavior, learners grasp core SoC principles before tackling RTL coding or silicon-level challenges.
 
-![Block Diagram](/home/ishaan-kamath/Desktop/VSD-RISCV/WEEK2/Photos/img.png)
+![Block Diagram](../WEEK2/Photos/imgs.png)
 
 #### Why SoCs Are Awesome
 
@@ -318,8 +316,6 @@ The instruction matches the **CPU_instr_a1** signal in the gtkwave window. The D
 - The **OUT** represents the **DAC’s internal analog output**.
 - The **top‑level SoC OUT** is **digital** in this simulation and can take only **two values**, so it appears as a **1‑bit step** instead of a continuous analog level. (Not in this picture)
 
-
-
 ```verilog
 generate for (xreg = 0; xreg <= 31; xreg=xreg+1) begin : L1_CPU_Xreg //_/xreg
 
@@ -338,8 +334,6 @@ This Snippet from `rvmyth.v` tells us upon reset all the registers are assigned 
 This sets `Xreg[17]` in rvmyth core to 17.  This is connected to the input of the `DAC` . 
 
 The output from `DAC real wire`  is 0.16617790 which is correct as `17/1023 ≈ 0.0166` (The DAC is 10-Bit).
-
-
 
 This can clearly be seen and confirmed in the image below that after reset `OUT = 0.16617790` and `OUT[9:0]=0x011 (17 in decimal)`.
 
