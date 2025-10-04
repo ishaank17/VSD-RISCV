@@ -201,5 +201,55 @@ In this picture we can see the following signals:
      sky130_fd_sc_hd__o41ai_1        2
      sky130_fd_sc_hd__or2_2         12
      sky130_fd_sc_hd__xnor2_1       16
-     sky130_fd_sc_hd__xor2_1        34
+     sky130_fd_sc_hd__xor2_1        34 
 ```
+
+---
+
+## Waveform Analysis:
+
+![Reset Behavior ](../WEEK2/Photos/Pasted%20image.png)
+
+The reset is directly connected to **CPU_reset_a0** and then in the next clock rising edge **CPU_reset_a1** is set.
+
+At this point the **Program Counter** is reset to addres location 0.
+
+In the next cycle the **CPU_instr_a1** is loaded with the instruction at memory location 0.
+
+In the above image we see **CPU_instr_a1** has `00000000000100000000010010010011`
+
+Which is also given in the `rvmyth.v`
+
+![Assembly converted code](../WEEK2/Photos/2025-10-04-13-08-21-image.png)
+
+We can also see the assembly insruction for this given in `rvmyth.tlv`
+
+```verilog
+\TLV
+   //
+   m4_asm(ADDI, r9, r0, 1)
+   m4_asm(ADDI, r10, r0, 101011)
+   m4_asm(ADDI, r11, r0, 0)
+   m4_asm(ADDI, r17, r0, 0)
+
+   m4_asm(ADD, r17, r17, r11)
+   m4_asm(ADDI, r11, r11, 1)
+   m4_asm(BNE, r11, r10, 1111111111000)
+   m4_asm(ADD, r17, r17, r11)
+
+   m4_asm(SUB, r17, r17, r11)
+   m4_asm(SUB, r11, r11, r9)
+   m4_asm(BNE, r11, r9, 1111111111000)
+   m4_asm(SUB, r17, r17, r11)
+
+   m4_asm(BEQ, r0, r0, 1111111100000)
+   //
+   m4_define_hier(['M4_IMEM'], M4_NUM_INSTRS)
+   //
+```
+
+The instruction matches the **CPU_instr_a1** signal in the gtkwave window. The DAC gets a initial value of 17 (decimal) since all xregs are set to their index values upon reset and the data port of DAC uses the xreg[17]'s values.
+
+#### DAC Output:
+
+![DAC Outpu](../WEEK2/Photos/Pasted%20image%20(2).png "DAC Output")
