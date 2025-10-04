@@ -260,7 +260,7 @@ The instruction matches the **CPU_instr_a1** signal in the gtkwave window. The D
 
 `CLK`  (Yellow Signal) is the input clock signal of the **RVMYTH core**. This signal is derived from the output of the PLL. The CLK waveform shows a periodic square wave driving all synchronous elements of the BabySoC. Each rising edge triggers state transitions inside flip-flops and sequential logic.
 
-![Output](/home/ishaan-kamath/Desktop/VSD-RISCV/WEEK2/Photos/Pasted%20image%20(3).png)
+![Output](../WEEK2/Photos/Pasted%20image%20(3).png)
 
 ### <u>Data Flow Between Modules</u> :
 
@@ -294,4 +294,4 @@ The output from `DAC real wire`  is 0.16617790 which is correct as `17/1023 ≈ 
 
 This can clearly be seen and confirmed in the image below that after reset `OUT = 0.16617790` and `OUT[9:0]=0x011 (17 in decimal)`.
 
-![Output](/home/ishaan-kamath/Desktop/VSD-RISCV/WEEK2/Photos/Pasted%20image%20(4).png)
+![Output](../WEEK2/Photos/Pasted%20image%20(4).png)
